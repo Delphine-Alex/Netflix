@@ -1,0 +1,29 @@
+.banner__btn {
+  display: flex;
+  .btn {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 5px;
+    &__color {
+      &-grey {
+        background: black;
+        color: white;
+        &:hover {
+          background: white;
+          color: $secondColor;
+          transition: 0.3s all;
+        }
+      }
+      &-white {
+        background-color: $secondColor;
+        color: $primaryColor;
+        &:hover {
+          background: black;
+          color: white;
+          transition: 0.3s all;
+        }
+      }
+    }
+  }
+}
