@@ -1,0 +1,38 @@
+.footer {
+  margin: 20px auto 0;
+  color: $greyColor;
+  max-width: 980px;
+  padding: 0 4%;
+  a {
+    color: inherit;
+  }
+  &__icons {
+    margin-bottom: 1em;
+    margin-left: 0.5em;
+    .footer__icon {
+      margin-right: 15px;
+      color: $secondColor;
+    }
+  }
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    list-style-type: none;
+    font-size: 13px;
+    margin: 0 0 14px 0;
+    padding: 0;
+    .footer__link {
+      margin-bottom: 16px;
+      flex: 1 0 25%;
+      color: $greyColor;
+      @media screen and (max-width: 768px) {
+        flex: 1 50%;
+      }
+    }
+  }
+  &__copyright {
+    margin-bottom: 15px;
+    font-size: 11px;
+  }
+}

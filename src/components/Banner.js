@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
 import Button from './Button';
 
 import moviesService from '../services/movies.service';
@@ -13,7 +16,7 @@ const Banner = () => {
             .then((data) => {
                 setMovies(data.results
                 [
-                    Math.floor(Math.random() * data.results.length)
+                    Math.floor(Math.random() * data.results.length) + 0
                 ]);
             })
             .catch(err => console.log(err))
@@ -22,7 +25,9 @@ const Banner = () => {
     console.log(movies);
 
     const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies.backdrop_path}")`
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies.backdrop_path}")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover"
     }
 
     return (
@@ -31,7 +36,9 @@ const Banner = () => {
                 <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
                 <p className='banner__description'>{movies && movies.overview}</p>
                 <div className="banner__btn">
+                    <PlayArrowIcon />
                     <Button title="Lecture" type="button" classes="btn btn__color-white" />
+                    <ErrorOutlineIcon />
                     <Button title="Plus d'infos" type="button" classes="btn btn__color-grey" />
                 </div>
             </div>

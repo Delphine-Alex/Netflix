@@ -1,9 +1,9 @@
 //Helpers
 @import "./helpers/variables.scss";
-
 //Base
-
+@import "./base/base.scss";
 //Themes
+@import "./theme/banner.scss";
 @import "./theme/button.scss";
-
 //Layout
+@import "./layout/footer.scss";
