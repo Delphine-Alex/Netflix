@@ -13,6 +13,10 @@ const Banner = () => {
     const [movies, setMovies] = useState([])
     const [showModal, setShowModal] = useState(false);
 
+    const handleClick = () => {
+        setShowModal((showModal) => !showModal);
+    };
+
     useEffect(() => {
         moviesService.getMovies()
             .then((data) => {
@@ -24,6 +28,8 @@ const Banner = () => {
             .catch(err => console.log(err))
     }, []);
 
+
+
     const bannerStyle = {
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies.backdrop_path}")`,
         backgroundPosition: "center",
@@ -34,10 +40,6 @@ const Banner = () => {
         return string?.length > 150 ? `${string.substring(0, 150)}...` : string
     };
 
-    const handleClick = () => {
-        showModal ? setShowModal(false) : setShowModal(true);
-    }
-
     return (
         <div className='banner' style={bannerStyle}>
             <div className='banner__content'>
@@ -45,11 +47,10 @@ const Banner = () => {
                 <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
                     < Button title="Play" type="button" classes="btn btn__color_white" />
-                    < Button title="More Info" type="button" classes="btn btn__color_grey" onClick={handleClick} />
+                    < Button title="More Info" type="button" classes="btn btn__color_grey" function={handleClick} />
                 </div>
             </div>
-            <Modal showModal={handleClick}
-            />
+            {showModal && <Modal showModal={handleClick} movies={movies} bannerStyle={bannerStyle} />}
         </div>
     );
 }
