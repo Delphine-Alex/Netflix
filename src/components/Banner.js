@@ -41,9 +41,9 @@ const Banner = () => {
                 <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
                     {/* <PlayArrowIcon /> */}
-                    <Button title="Lecture" type="button" classes="btn btn__color-white" />
+                    <Button title="Play" type="button" classes="btn btn__color_white" />
                     {/* <ErrorOutlineIcon /> */}
-                    <Button title="Plus d'infos" type="button" classes="btn btn__color-grey" />
+                    <Button title="More Info" type="button" classes="btn btn__color_grey" />
                 </div>
             </div>
         </div>
