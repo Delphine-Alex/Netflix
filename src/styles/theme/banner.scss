@@ -1,5 +1,24 @@
 .banner {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   height: 100vh;
+  &__content {
+    padding: 17vh 4% 0 4%;
+    width: 43%;
+    .banner__title {
+      color: $secondColor;
+      font-size: 2vw;
+    }
+    .banner__description {
+      color: $secondColor;
+      font-weight: 300;
+      width: 100%;
+      font-size: 1.4vw;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    }
+    .banner__btn {
+      display: flex;
+    }
+  }
 }

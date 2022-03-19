@@ -30,15 +30,19 @@ const Banner = () => {
         backgroundSize: "cover"
     }
 
+    const truncate = (string) => {
+        return string?.length > 150 ? `${string.substring(0, 150)}...` : string
+    };
+
     return (
         <div className='banner' style={bannerStyle}>
             <div className='banner__content'>
                 <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
-                <p className='banner__description'>{movies && movies.overview}</p>
+                <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
-                    <PlayArrowIcon />
+                    {/* <PlayArrowIcon /> */}
                     <Button title="Lecture" type="button" classes="btn btn__color-white" />
-                    <ErrorOutlineIcon />
+                    {/* <ErrorOutlineIcon /> */}
                     <Button title="Plus d'infos" type="button" classes="btn btn__color-grey" />
                 </div>
             </div>

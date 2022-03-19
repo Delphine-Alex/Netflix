@@ -8,11 +8,19 @@
   height: 70px;
   &__primary__navigation {
     margin-left: 20px;
+    color: $secondColor;
     .header__item {
-      color: $secondColor;
       text-decoration: none;
       padding: 5px 10px;
       font-size: 14px;
+      @media screen and (max-width: 885px) {
+        display: none;
+      }
+    }
+    .header__responsive_item {
+      @media screen and (min-width: 885px) {
+        display: none;
+      }
     }
   }
   &__secondary__navigation {

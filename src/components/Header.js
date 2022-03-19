@@ -30,6 +30,7 @@ const Header = () => {
                 <a href="/" className="header__item">Movies</a>
                 <a href="/" className="header__item">New & Popular</a>
                 <a href="/" className="header__item">My List</a>
+                <a href="/" className="header__responsive_item">Browse</a>
             </nav>
             <div className="header__secondary__navigation">
                 <a href="/" className="header__link"><SearchIcon /></a>
