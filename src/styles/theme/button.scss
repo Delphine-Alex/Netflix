@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 2rem;
-  padding-right: 2.4rem;
   margin-right: 1rem;
   border-radius: 4px;
   padding: 0.8rem;
@@ -22,7 +20,7 @@
   &__color_grey {
     background-color: rgba(109, 109, 110, 0.7);
     color: $secondColor;
-    font-size: 1vw;
+    font-size: 1.3vw;
     font-weight: bold;
   }
 }

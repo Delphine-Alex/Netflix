@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+// import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import Button from './Button';
+import Modal from './Modal';
 
 import moviesService from '../services/movies.service';
 
 const Banner = () => {
     const [movies, setMovies] = useState([])
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         moviesService.getMovies()
@@ -22,8 +24,6 @@ const Banner = () => {
             .catch(err => console.log(err))
     }, []);
 
-    console.log(movies);
-
     const bannerStyle = {
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies.backdrop_path}")`,
         backgroundPosition: "center",
@@ -34,18 +34,22 @@ const Banner = () => {
         return string?.length > 150 ? `${string.substring(0, 150)}...` : string
     };
 
+    const handleClick = () => {
+        showModal ? setShowModal(false) : setShowModal(true);
+    }
+
     return (
         <div className='banner' style={bannerStyle}>
             <div className='banner__content'>
                 <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
                 <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
-                    {/* <PlayArrowIcon /> */}
-                    <Button title="Play" type="button" classes="btn btn__color_white" />
-                    {/* <ErrorOutlineIcon /> */}
-                    <Button title="More Info" type="button" classes="btn btn__color_grey" />
+                    < Button title="Play" type="button" classes="btn btn__color_white" />
+                    < Button title="More Info" type="button" classes="btn btn__color_grey" onClick={handleClick} />
                 </div>
             </div>
+            <Modal showModal={handleClick}
+            />
         </div>
     );
 }
