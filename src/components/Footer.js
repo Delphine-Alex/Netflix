@@ -7,7 +7,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <div className="footer">
             <div className="footer__icons">
                 <a href="/" className="footer__icon"><FacebookIcon /></a>
                 <a href="/" className="footer__icon"><InstagramIcon /></a>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <span>© 2021 - 2022 Netflix Clone By Delphine P.</span>
             </div>
 
-        </footer>
+        </div>
     );
 }
 
