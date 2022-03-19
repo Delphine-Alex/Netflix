@@ -16,11 +16,22 @@ const Row = () => {
 
     console.log(movies)
 
+
     return (
         <div className="row">
             <div className="row__content">
                 <h2 className="row__title">Title</h2>
-                <img className="row__image" alt="Image" />
+                {movies.map((movie) => {
+                    return (
+                        <div key={movie.id}>
+                            <img
+                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                className="row__image"
+                                alt="Image"
+                            />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

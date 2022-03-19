@@ -1,0 +1,12 @@
+.row {
+  &__content {
+    .row__title {
+      color: $secondColor;
+      font-size: 1.4vw;
+    }
+  }
+}
+
+.row__image {
+  width: 250px;
+}
