@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-// import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import Button from './Button';
 import Modal from './Modal';
@@ -46,8 +46,8 @@ const Banner = () => {
                 <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
                 <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
-                    < Button title="Play" type="button" classes="btn btn__color_white" />
-                    < Button title="More Info" type="button" classes="btn btn__color_grey" function={handleClick} />
+                    < Button title="Play" icon={<PlayArrowIcon />} type="button" classes="btn btn__color_white" />
+                    < Button title="More Info" icon={<ErrorOutlineIcon />} type="button" classes="btn btn__color_grey" function={handleClick} />
                 </div>
             </div>
             {showModal && <Modal showModal={handleClick} movies={movies} bannerStyle={bannerStyle} />}

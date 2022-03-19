@@ -11,6 +11,11 @@
     color: $primaryColor;
     font-size: 1.3vw;
     font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 1.4rem;
+    .css-i4bv87-MuiSvgIcon-root {
+      margin-right: 0.5rem;
+    }
     &:hover {
       background: rgba(255, 255, 255, 0.75);
       transition: 0.3s all;
@@ -22,5 +27,10 @@
     color: $secondColor;
     font-size: 1.3vw;
     font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 1.4rem;
+    .css-i4bv87-MuiSvgIcon-root {
+      margin-right: 0.5rem;
+    }
   }
 }

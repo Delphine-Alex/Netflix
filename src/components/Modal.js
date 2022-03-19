@@ -1,24 +1,28 @@
 import React from 'react';
 
+import Button from './Button';
+
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
 const Modal = ({ showModal, movies, bannerStyle }) => {
     return (
         <>
             <div className="overlay" onClick={showModal}></div>
-            <div className="modal" style={bannerStyle}>
-                <div className="modal__header">
+            <div className="modal" >
+                <div className="modal__header" style={bannerStyle}>
                     <div className="close__cross" onClick={showModal}>
                         <span></span>
                         <span></span>
                     </div>
                 </div>
 
-                <h1>{movies && movies.title || movies && movies.original_title}</h1>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book.
-                </p>
+                <div className='modal__content'>
+                    <h1 className='modal__title'>{movies && movies.title || movies && movies.original_title}</h1>
+                    <p className='modal__description'>{movies && movies.overview}</p>
+                    <div className="banner__btn">
+                        < Button icon={<PlayArrowIcon />} title="Play" type="button" classes="btn btn__color_white" />
+                    </div>
+                </div>
             </div>
         </>
 

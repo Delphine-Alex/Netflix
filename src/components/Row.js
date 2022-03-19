@@ -1,9 +1,27 @@
-import React from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
+
+import moviesService from "../services/movies.service";
 
 const Row = () => {
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        moviesService.getMovies()
+            .then((data) => {
+                setMovies(data.results);
+            })
+            .catch(err => console.log(err))
+    }, []);
+
+    console.log(movies)
+
     return (
-        <div>
-            <p>I'm a row</p>
+        <div className="row">
+            <div className="row__content">
+                <h2 className="row__title">Title</h2>
+                <img className="row__image" alt="Image" />
+            </div>
         </div>
     );
 }

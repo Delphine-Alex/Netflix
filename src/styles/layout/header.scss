@@ -23,6 +23,7 @@
       }
     }
     .header__responsive_item {
+      font-size: 10px;
       @media screen and (min-width: 885px) {
         display: none;
       }
@@ -37,6 +38,11 @@
     .header__link {
       color: $secondColor;
       margin-right: 25px;
+      @media screen and (max-width: 885px) {
+        .css-i4bv87-MuiSvgIcon-root {
+          height: 0.75em;
+        }
+      }
     }
     .header__avatar {
       border-radius: 5px;
