@@ -7,8 +7,10 @@
     padding: 17vh 4% 0 4%;
     width: 43%;
     .banner__title {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
       color: $secondColor;
-      font-size: 2vw;
+      font-size: 1.6vw;
+      font-weight: 700;
     }
     .banner__description {
       color: $secondColor;
