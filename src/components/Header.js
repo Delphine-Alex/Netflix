@@ -12,7 +12,7 @@ const Header = () => {
     const [scroll, setScroll] = useState("transparent");
 
     const listenScrollEvent = () => {
-        window.scrollY > 10 ? setScroll("#000000") : setScroll("transparent");
+        window.scrollY > 10 ? setScroll("#141414") : setScroll("transparent");
     };
 
     useEffect(() => {

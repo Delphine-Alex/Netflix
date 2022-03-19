@@ -21,17 +21,19 @@ const Row = () => {
         <div className="row">
             <div className="row__content">
                 <h2 className="row__title">Title</h2>
-                {movies.map((movie) => {
-                    return (
-                        <div key={movie.id}>
-                            <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                                className="row__image"
-                                alt="Image"
-                            />
-                        </div>
-                    )
-                })}
+                <div className="row__pictures">
+                    {movies.map((movie) => {
+                        return (
+                            <div key={movie.id}>
+                                <img
+                                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                    className="row__image"
+                                    alt={movie && movie.title || movie && movie.original_title}
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );
