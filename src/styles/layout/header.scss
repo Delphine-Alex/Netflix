@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  padding: 8px 3%;
+  height: 70px;
+  &__primary__navigation {
+    margin-left: 20px;
+    .header__item {
+      color: $secondColor;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  }
+  &__secondary__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 38px;
+    .header__link {
+      color: $secondColor;
+      margin-right: 25px;
+    }
+    .header__avatar {
+      border-radius: 5px;
+    }
+  }
+}
