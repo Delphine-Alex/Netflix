@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from 'next/image';
 
@@ -9,9 +9,21 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
+    const [scroll, setScroll] = useState("transparent");
+
+    const listenScrollEvent = () => {
+        window.scrollY > 10 ? setScroll("#000000") : setScroll("transparent");
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", listenScrollEvent);
+        return () => {
+            window.removeEventListener("scroll", listenScrollEvent);
+        };
+    }, []);
 
     return (
-        <div className="header">
+        <div className="header" style={{ backgroundColor: scroll, transition: "all 1s" }}>
             <Image src={netflix} alt="Netflix logo" className="header__logo" height={70} width={120} />
             <nav className="header__primary__navigation">
                 <a href="/" className="header__item">Home</a>
