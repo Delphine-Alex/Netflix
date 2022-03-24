@@ -14,14 +14,17 @@ const Modal = ({ showModal, movies, bannerStyle }) => {
                         <span></span>
                         <span></span>
                     </div>
+
+                    <div className='modal__content'>
+                        <h1 className='modal__title'>{movies && movies.title || movies && movies.original_title}</h1>
+                        <div className="banner__btn">
+                            < Button icon={<PlayArrowIcon />} title="Play" type="button" classes="btn btn__color_white" />
+                        </div>
+                    </div>
                 </div>
 
-                <div className='modal__content'>
-                    <h1 className='modal__title'>{movies && movies.title || movies && movies.original_title}</h1>
+                <div className='modal__conten'>
                     <p className='modal__description'>{movies && movies.overview}</p>
-                    <div className="banner__btn">
-                        < Button icon={<PlayArrowIcon />} title="Play" type="button" classes="btn btn__color_white" />
-                    </div>
                 </div>
             </div>
         </>

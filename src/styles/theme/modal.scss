@@ -17,7 +17,7 @@
   border-radius: 4px;
   &__header {
     position: relative;
-    height: 45vh;
+    height: 50vh;
     .close__cross {
       width: 15px;
       height: 15px;
@@ -41,20 +41,23 @@
         }
       }
     }
-  }
-  &__content {
-    padding: 3rem;
+    .modal__content {
+      //border: 2px solid red;
+      padding: 30vh 4% 0 4%;
+    }
     .modal__title {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
       color: $secondColor;
       font-size: 1.6vw;
       font-weight: 700;
     }
+  }
+  &__conten {
+    padding: 2rem;
     .modal__description {
       color: $secondColor;
       font-weight: 300;
-      width: 100%;
-      font-size: 1.4vw;
+      font-size: 1.2vw;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
     }
   }
