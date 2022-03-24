@@ -1,10 +1,13 @@
 import React from 'react';
 
+import Video from '../../../components/Video';
+
 const Index = () => {
     return (
-        <div>
-            <h3>This is a title</h3>
-        </div>
+        <>
+            <h1>Test</h1>
+            <Video />
+        </>
     );
 }
 

@@ -1,18 +1,20 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'
+// import Link from 'next/link';
 
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import Button from './Button';
 import Modal from './Modal';
-import Video from './Video';
 
 import moviesService from '../services/movies.service';
 
 const Banner = () => {
     const [movies, setMovies] = useState([])
     const [showModal, setShowModal] = useState(false);
+
+    const router = useRouter();
 
     const handleClick = () => {
         setShowModal((showModal) => !showModal);
@@ -47,13 +49,14 @@ const Banner = () => {
                 <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
                 <p className='banner__description'>{truncate(movies && movies.overview)}</p>
                 <div className="banner__btn">
-                    < Button title="Play" icon={<PlayArrowIcon />} type="button" classes="btn btn__color_white" />
+                    {/* <Link href={`/video/${movies.id}`}> */}
+                    {/* <Link href="/login"> */}
+                    < Button title="Play" icon={<PlayArrowIcon />} type="button" classes="btn btn__color_white" function={() => router.push(`/video/${movies.id}`)} />
+                    {/* </Link> */}
                     < Button title="More Info" icon={<ErrorOutlineIcon />} type="button" classes="btn btn__color_grey" function={handleClick} />
                 </div>
             </div>
             {showModal && <Modal showModal={handleClick} movies={movies} bannerStyle={bannerStyle} />}
-
-            <Video />
         </div>
     );
 }

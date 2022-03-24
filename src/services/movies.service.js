@@ -5,5 +5,9 @@ export default {
     getMovies() {
         return fetch(`${apiUrl}/movie/top_rated?api_key=${apiKey}`)
             .then((res) => res.json())
+    },
+    getVideo(id) {
+        return fetch(`${apiUrl}/movie/${id}/videos?api_key=${apiKey}`)
+            .then((res) => res.json())
     }
 }
