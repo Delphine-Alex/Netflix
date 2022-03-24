@@ -5,17 +5,14 @@ import { useRouter } from 'next/router';
 import moviesService from '../services/movies.service';
 
 const Video = () => {
-    const [movie, setMovies] = useState(false);
+    const [movie, setMovies] = useState({});
     const router = useRouter();
     const { id } = router.query;
 
     useEffect(() => {
         moviesService.getVideo(id)
             .then((data) => {
-                setMovies(data.results[0].key);
-                //console.log("results", data.results);
-                console.log("One DATA", data.results[0]);
-                console.log("KEY", data.results[0].key);
+                setMovies(data.results[0])
             })
             .catch(err => console.log(err))
     }, [id]);
@@ -23,11 +20,9 @@ const Video = () => {
     return (
         <>
             <iframe
-                width="560" height="315"
-                //src="https://www.youtube.com/embed/a2GujJZfXpg"
-                src={`https://www.youtube.com/embed/${movie}`}
-                title="YouTube video player" frameBorder="0"
-                //allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src={`https://www.youtube.com/embed/${movie.key}`}
+                title="YouTube video player"
+                frameBorder="0"
                 allowFullScreen
             >
             </iframe>
