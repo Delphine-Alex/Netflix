@@ -6,6 +6,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import Button from './Button';
 import Modal from './Modal';
+import Video from './Video';
 
 import moviesService from '../services/movies.service';
 
@@ -51,6 +52,8 @@ const Banner = () => {
                 </div>
             </div>
             {showModal && <Modal showModal={handleClick} movies={movies} bannerStyle={bannerStyle} />}
+
+            <Video />
         </div>
     );
 }
