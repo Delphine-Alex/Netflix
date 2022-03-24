@@ -3,20 +3,32 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import { useRouter } from 'next/router';
+
 const Mainlayout = ({ children }) => {
-    return (
-        <div>
-            <header>
-                <Header />
-            </header>
-            <main>
+    const router = useRouter();
+
+    if (router.pathname != "/login" && router.pathname != "/")
+        return (
+            <div>
+                <header>
+                    <Header />
+                </header>
+                <main>
+                    {children}
+                </main>
+                <footer>
+                    <Footer />
+                </footer>
+            </div>
+        )
+    else {
+        return (
+            <div>
                 {children}
-            </main>
-            <footer>
-                <Footer />
-            </footer>
-        </div>
-    );
+            </div>
+        )
+    };
 }
 
 export default Mainlayout;
