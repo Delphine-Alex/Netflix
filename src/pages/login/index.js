@@ -1,41 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
-import Background from "../../public/assets/background.jpeg";
+import Netflix from "../../public/assets/netflix_logo.png";
 
 const Index = () => {
-    return (
-        <div>
-            <Image src={Background} alt="Netflix background" className="" />
-            <div className="overlay"></div>
-            <div className="login">
+    const [inputs, setInputs] = useState({});
 
-                <div className='login__content'>
+    const submitLogin = (e) => {
+        e.preventDefault();
+        console.log(inputs);
+    }
+
+    const bannerStyle = {
+        backgroundImage: `url("https://assets.nflxext.com/ffe/siteui/vlv3/87a1d9d8-a21d-4109-ba3a-c10d9055f5cf/5491a337-dd7f-423e-aac5-6da179feb9b9/FR-fr-20220307-popsignuptwoweeks-perspective_alpha_website_small.jpg")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+    }
+
+    return (
+        <div className="login" style={bannerStyle}>
+            {/* <div className="overlay"></div> */}
+            <div className="login__header">
+                <Image src={Netflix} alt="Netflix logo" className="login__logo" height={110} width={200} />
+            </div>
+            <div className='login__content'>
+                <div className="login__main">
                     <h1 className="login__title">Sign In</h1>
-                    <form>
+                    <form onSubmit={(e) => submitLogin(e)}>
                         <Input
-                            // label="Email"
                             name="email"
                             id="email"
                             type="text"
-                            // classes="login__input"
+                            classes="form__input"
                             required={false}
                             placeholder="Email or phone number"
+                            handleChange={(e) => setInputs({ ...inputs, email: e.target.value })}
                         />
                         <Input
-                            // label="Email"
                             name="password"
                             id="password"
                             type="text"
-                            // classes="login__input"
+                            classes="form__input"
                             required={false}
                             placeholder="Password"
+                            handleChange={(e) => setInputs({ ...inputs, password: e.target.value })}
                         />
+                        <Button title="Sign In" classes="btn btn__color_red" />
                     </form>
-                    <Button title="Sign In" />
+                </div>
+
+                <div className="login__second">
+                    <p className="login__signup">
+                        New to Netflix? <a href="/browser" className="login__redirection">Sign up now</a>.
+                    </p>
+                    <p className="login__protected">
+                        This page is protected by Google reCAPTCHA to ensure you're not a
+                        bot. <a className="login__information" href="/">Learn more</a>.
+                    </p>
                 </div>
             </div>
         </div>
