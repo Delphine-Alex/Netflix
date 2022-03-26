@@ -6,6 +6,15 @@ export default {
         return fetch(`${apiUrl}/movie/top_rated?api_key=${apiKey}`)
             .then((res) => res.json())
     },
+    getDiscover() {
+        return fetch(`${apiUrl}/discover/movie?api_key=${apiKey}&width_genres=28`)
+            .then((res) => res.json())
+    },
+    // Get a list of the current popular movies on TMDB
+    getPopular() {
+        return fetch(`${apiUrl}/movie/popular?api_key=${apiKey}`)
+            .then((res) => res.json())
+    },
     getVideo(id) {
         return fetch(`${apiUrl}/movie/${id}/videos?api_key=${apiKey}`)
             .then((res) => res.json())

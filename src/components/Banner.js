@@ -10,7 +10,7 @@ import Modal from './Modal';
 import moviesService from '../services/movies.service';
 
 const Banner = () => {
-    const [movies, setMovies] = useState([])
+    const [movie, setMovie] = useState([])
     const [showModal, setShowModal] = useState(false);
 
     const router = useRouter();
@@ -22,18 +22,16 @@ const Banner = () => {
     useEffect(() => {
         moviesService.getMovies()
             .then((data) => {
-                setMovies(data.results
+                setMovie(data.results
                 [
-                    Math.floor(Math.random() * data.results.length) + 0
+                    Math.floor(Math.random() * data.results.length) - 1
                 ]);
             })
             .catch(err => console.log(err))
     }, []);
 
-
-
     const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
         backgroundPosition: "center",
         backgroundSize: "cover"
     }
@@ -45,14 +43,14 @@ const Banner = () => {
     return (
         <div className='banner' style={bannerStyle}>
             <div className='banner__content'>
-                <h1 className='banner__title'>{movies && movies.title || movies && movies.original_title}</h1>
-                <p className='banner__description'>{truncate(movies && movies.overview)}</p>
+                <h1 className='banner__title'>{movie && movie.title || movie && movie.original_title}</h1>
+                <p className='banner__description'>{truncate(movie && movie.overview)}</p>
                 <div className="banner__btn">
-                    < Button title="Play" icon={<PlayArrowIcon />} type="button" classes="btn btn__color_white" function={() => router.push(`/video/${movies.id}`)} />
+                    < Button title="Play" icon={<PlayArrowIcon />} type="button" classes="btn btn__color_white" function={() => router.push(`/video/${movie.id}`)} />
                     < Button title="More Info" icon={<ErrorOutlineIcon />} type="button" classes="btn btn__color_grey" function={handleClick} />
                 </div>
             </div>
-            {showModal && <Modal showModal={handleClick} movies={movies} bannerStyle={bannerStyle} />}
+            {showModal && <Modal showModal={handleClick} movie={movie} onClose={() => handleClick(undefined)} bannerStyle={bannerStyle} />}
         </div>
     );
 }

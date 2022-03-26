@@ -7,7 +7,9 @@ const Index = () => {
     return (
         <div>
             <Banner />
-            <Row />
+            <Row title="Title" />
+            <Row title="Title" />
+            <Row title="Title" />
         </div>
     );
 }
