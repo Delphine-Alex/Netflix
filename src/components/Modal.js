@@ -6,9 +6,38 @@ import Button from './Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-const Modal = ({ onClose, showModal, movie, bannerStyle }) => {
-
+const Modal = ({ onClose, movie, bannerStyle }) => {
     const router = useRouter();
+
+    const addToFavorite = (element) => {
+
+        const movieToInsert = {
+            id: element.id,
+            title: element.title,
+        }
+        const movieArray = [];
+
+        if (localStorage.getItem("favorite")) {
+            const localStorageFavorite = JSON.parse(localStorage.getItem("favorite"));
+            localStorageFavorite.forEach((item) => {
+                movieArray.push(item);
+            });
+
+            const checkId = movieArray.findIndex((el) => el.id === element.id);
+            if (checkId == -1) {
+                movieArray.push(movieToInsert)
+            } else {
+                console.log("Sorry but your movie is already in favorite")
+            }
+
+            localStorage.setItem("favorite", JSON.stringify(movieArray));
+
+        } else {
+            movieArray.push(movieToInsert)
+            localStorage.setItem("favorite", JSON.stringify(movieArray));
+        }
+
+    }
 
     return (
         <>
@@ -24,7 +53,7 @@ const Modal = ({ onClose, showModal, movie, bannerStyle }) => {
                         <h1 className='modal__title'>{movie && movie.title || movie && movie.original_title}</h1>
                         <div className="modal__btn">
                             < Button icon={<PlayArrowIcon />} title="Play" type="button" classes="btn btn__color_white" function={() => router.push(`/video/${movie.id}`)} />
-                            <AddCircleOutlineIcon className="modal__icon" />
+                            < AddCircleOutlineIcon className="modal__icon" onClick={() => addToFavorite(movie)} />
                         </div>
                     </div>
                 </div>
