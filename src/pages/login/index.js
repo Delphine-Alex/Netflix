@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -22,9 +21,8 @@ const Index = () => {
 
     return (
         <div className="login" style={bannerStyle}>
-            {/* <div className="overlay"></div> */}
             <div className="login__header">
-                <Image src={Netflix} alt="Netflix logo" className="login__logo" height={110} width={200} />
+                <img src={Netflix.src} className="login__logo" />
             </div>
             <div className='login__content'>
                 <div className="login__main">
