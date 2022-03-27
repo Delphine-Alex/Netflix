@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -7,6 +8,8 @@ import Netflix from "../../public/assets/netflix_logo.png";
 
 const Index = () => {
     const [inputs, setInputs] = useState({});
+
+    const router = useRouter();
 
     const submitLogin = (e) => {
         e.preventDefault();
@@ -46,7 +49,7 @@ const Index = () => {
                             placeholder="Password"
                             handleChange={(e) => setInputs({ ...inputs, password: e.target.value })}
                         />
-                        <Button title="Sign In" classes="btn btn__color_red" />
+                        <Button title="Sign In" classes="btn btn__color_red" function={() => router.push("/browser")} />
                     </form>
                 </div>
 

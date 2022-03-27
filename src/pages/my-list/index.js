@@ -2,14 +2,21 @@ import React, { useState, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Modal from '../../components/Modal';
+
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 const Index = () => {
     const [favorites, setFavorites] = useState([])
+    const [showModal, setShowModal] = useState();
 
     const router = useRouter();
+
+    const handleClick = (showModalId) => {
+        setShowModal(showModalId)
+    };
 
     useEffect(() => {
         setFavorites(JSON.parse(localStorage.getItem("favorite")) || []);
@@ -38,12 +45,12 @@ const Index = () => {
                                 <div className="favorite__icons">
                                     <div>
                                         <PlayCircleIcon onClick={() => router.push(`/video/${favorite.id}`)} />
-                                        <HighlightOffIcon className="favorite__icon"
-                                            onClick={() => removeFavorite(favorite)}
-                                        />
+                                        <CheckCircleOutlineIcon className="favorite__icon" onClick={() => removeFavorite(favorite)} />
                                     </div>
-                                    <ExpandCircleDownIcon className="favorite__icon" />
+                                    <ExpandCircleDownIcon className="favorite__icon" onClick={() => handleClick(favorite.id)} />
                                 </div>
+
+                                {showModal === favorite.id && <Modal showModal={() => handleClick(favorite.id)} onClose={() => handleClick(undefined)} movie={favorite} />}
                             </div>
                         )
                     })}

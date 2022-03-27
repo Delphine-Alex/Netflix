@@ -17,7 +17,6 @@ const Row = (props) => {
 
     const handleClick = (showModalId) => {
         setShowModal(showModalId)
-
     };
 
     useEffect(() => {
@@ -61,7 +60,6 @@ const Row = (props) => {
 
     }
 
-
     return (
         <div className="row">
             <div className="row__content">
@@ -76,9 +74,10 @@ const Row = (props) => {
                                     alt={movie && movie.title || movie && movie.original_title}
                                     className="row__picture"
                                 />
-                                <div className="row__icons">
+
+                                <div className="row__icons" >
                                     <div>
-                                        <PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
+                                        < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
                                         <AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
                                     </div>
                                     <ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />

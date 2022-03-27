@@ -41,24 +41,25 @@
         }
       }
     }
-    .modal__content {
-      padding: 32vh 4% 0 4%;
-    }
-    .modal__title {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
-      color: $secondColor;
-      font-size: 1.6vw;
-      font-weight: 700;
-    }
-    .modal__btn {
-      display: flex;
-      align-items: center;
-      .modal__icon {
+    .modal__main {
+      position: absolute;
+      margin: 32vh 4% 0 4%;
+      .modal__title {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
         color: $secondColor;
+        font-size: 1.6vw;
+        font-weight: 700;
+      }
+      .modal__btn {
+        display: flex;
+        align-items: center;
+        .modal__icon {
+          color: $secondColor;
+        }
       }
     }
   }
-  &__conten {
+  &__content {
     padding: 10px 20px 10px 20px;
     .modal__description {
       color: $secondColor;

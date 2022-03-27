@@ -50,7 +50,7 @@ const Banner = () => {
                     < Button title="More Info" icon={<ErrorOutlineIcon />} type="button" classes="btn btn__color_grey" function={handleClick} />
                 </div>
             </div>
-            {showModal && <Modal showModal={handleClick} movie={movie} onClose={() => handleClick(undefined)} bannerStyle={bannerStyle} />}
+            {showModal && <Modal showModal={handleClick} movie={movie} onClose={() => handleClick(undefined)} />}
         </div>
     );
 }
