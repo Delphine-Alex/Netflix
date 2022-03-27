@@ -15,25 +15,11 @@ const Index = () => {
         setFavorites(JSON.parse(localStorage.getItem("favorite")) || []);
     }, []);
 
-    // const removeFavorite = () => {
-    //     localStorage.removeItem("favorite");
-    //     setFavorites(null);
-    // }
-
-    // const removeFavorite = (favorite) => {
-    //     const checkId = favorites.findIndex((el) => el.id === favorite.id);
-
-    //     if (checkId > 1) {
-    //         favorites[checkId].splice(favorite, 1);
-    //     }
-    //     // if (index > -1) {
-    //     //     newFavorites.splice(index, 1);
-    //     // if (checkId > -1) {
-    //     //     favorites.splice(checkId, 1);
-    //     // }
-    //     localStorage.setItem(("favorite"), JSON.stringify(favorites));
-    //     setFavorites(JSON.parse(localStorage.getItem("favorite")));
-    // }
+    const removeFavorite = (movie) => {
+        const filteredFavorite = favorites.filter((item) => item.id !== movie.id)
+        localStorage.setItem("favorite", JSON.stringify(filteredFavorite))
+        setFavorites(filteredFavorite)
+    }
 
     return (
         <div className="favorite">
@@ -53,7 +39,7 @@ const Index = () => {
                                     <div>
                                         <PlayCircleIcon onClick={() => router.push(`/video/${favorite.id}`)} />
                                         <HighlightOffIcon className="favorite__icon"
-                                        // onClick={removeFavorite} 
+                                            onClick={() => removeFavorite(favorite)}
                                         />
                                     </div>
                                     <ExpandCircleDownIcon className="favorite__icon" />
