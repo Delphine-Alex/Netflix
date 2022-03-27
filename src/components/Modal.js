@@ -14,6 +14,8 @@ const Modal = ({ onClose, movie, bannerStyle }) => {
         const movieToInsert = {
             id: element.id,
             title: element.title,
+            overview: element.overview,
+            backdrop_path: element.backdrop_path,
         }
         const movieArray = [];
 

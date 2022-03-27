@@ -8,10 +8,7 @@ import { useRouter } from 'next/router';
 const Mainlayout = ({ children }) => {
     const router = useRouter();
 
-    if (
-        // router.pathname != "/login" && router.pathname != "/"
-        router.pathname === "/browser"
-    )
+    if (router.pathname === "/browser" || router.pathname === "/my-list")
         return (
             <div>
                 <header>

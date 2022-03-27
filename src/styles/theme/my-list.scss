@@ -1,0 +1,32 @@
+.favorite {
+  padding-top: 85px;
+  margin-left: 45px;
+  padding-bottom: 85px;
+  &__title {
+    color: $secondColor;
+    font-size: 1.5rem;
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .favorite__pictures {
+      padding: 0.2rem;
+      margin: 0px 0px 25px -5px;
+      .favorite__picture {
+        width: 225px;
+        padding: 0.3rem;
+        border-radius: 10px;
+      }
+      .favorite__icons {
+        color: $secondColor;
+        display: flex;
+        justify-content: space-between;
+        .favorite__icon {
+          color: $greyColor;
+        }
+      }
+    }
+  }
+}

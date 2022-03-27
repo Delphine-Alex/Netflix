@@ -8,8 +8,6 @@ const Index = () => {
         <div>
             <Banner />
             <Row title="Title" />
-            <Row title="Title" />
-            <Row title="Title" />
         </div>
     );
 }
