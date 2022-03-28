@@ -15,10 +15,6 @@ const Row = (props) => {
 
     const router = useRouter();
 
-    const handleClick = (showModalId) => {
-        setShowModal(showModalId)
-    };
-
     useEffect(() => {
         moviesService.getDiscover()
             .then((data) => {
@@ -26,6 +22,10 @@ const Row = (props) => {
             })
             .catch(err => console.log(err))
     }, []);
+
+    const handleClick = (showModalId) => {
+        setShowModal(showModalId)
+    };
 
     const addToFavorite = (element) => {
 
@@ -74,7 +74,6 @@ const Row = (props) => {
                                     alt={movie && movie.title || movie && movie.original_title}
                                     className="row__picture"
                                 />
-
                                 <div className="row__icons" >
                                     <div>
                                         < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />

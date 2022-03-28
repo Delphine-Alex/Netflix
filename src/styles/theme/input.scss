@@ -1,6 +1,6 @@
 .form {
   max-width: 100%;
-  &__input {
+  &__input__login {
     padding: 10px 5px;
     border-radius: 4px;
     margin-bottom: 24px;
@@ -8,4 +8,9 @@
     height: 50px;
     border: none;
   }
+  // &__input__register {
+  //   //padding: 0px 35px;
+  //   // width: 150%;
+  //   height: 50px;
+  // }
 }

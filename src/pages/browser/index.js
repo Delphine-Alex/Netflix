@@ -7,7 +7,8 @@ const Index = () => {
     return (
         <div>
             <Banner />
-            <Row title="Title" />
+            <Row title="Netflix original" />
+            <Row title="Netflix original" />
         </div>
     );
 }

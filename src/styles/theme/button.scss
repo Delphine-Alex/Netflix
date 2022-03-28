@@ -42,4 +42,22 @@
     margin: 24px 0 17px;
     width: 100%;
   }
+  &__color-red-login {
+    background-color: $redColor;
+    padding: 0px 16px 0px 16px;
+    color: $secondColor;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 30px;
+  }
+  &__color-red-register {
+    background-color: $redColor;
+    padding: 0px 25px 0px 25px;
+    color: $secondColor;
+    font-size: 16px;
+    font-weight: 400;
+    height: 50px;
+    border-radius: 0px;
+    width: 200px;
+  }
 }

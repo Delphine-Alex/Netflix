@@ -35,7 +35,7 @@ const Index = () => {
                             name="email"
                             id="email"
                             type="text"
-                            classes="form__input"
+                            classes="form__input__login"
                             required={false}
                             placeholder="Email or phone number"
                             handleChange={(e) => setInputs({ ...inputs, email: e.target.value })}
@@ -43,8 +43,8 @@ const Index = () => {
                         <Input
                             name="password"
                             id="password"
-                            type="text"
-                            classes="form__input"
+                            type="password"
+                            classes="form__input__login"
                             required={false}
                             placeholder="Password"
                             handleChange={(e) => setInputs({ ...inputs, password: e.target.value })}
