@@ -1,0 +1,25 @@
+.search {
+  padding-top: 85px;
+  margin-left: 45px;
+  padding-bottom: 85px;
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .search__pictures {
+      padding: 0.2rem;
+      margin: 0px 0px 25px -5px;
+      .search__picture {
+        width: 225px;
+        padding: 0.3rem;
+        border-radius: 10px;
+      }
+      .search__icons {
+        color: $secondColor;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

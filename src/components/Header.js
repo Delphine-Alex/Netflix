@@ -33,7 +33,7 @@ const Header = () => {
                 <a href="/" className="header__responsive_item">Browse</a>
             </nav>
             <div className="header__secondary__navigation">
-                <a href="/" className="header__link"><SearchIcon /></a>
+                <a href="/search" className="header__link"><SearchIcon /></a>
                 <a href="/" className="header__link"><NotificationsIcon /></a>
                 <Image src={Avatar} alt="Avatar" height={30} width={30} className="header__avatar" />
             </div>
