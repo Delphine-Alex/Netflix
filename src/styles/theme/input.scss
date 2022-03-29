@@ -13,4 +13,12 @@
   //   // width: 150%;
   //   height: 50px;
   // }
+  &__input__search {
+    border: 2px solid $secondColor;
+    background-color: $primaryColor;
+    color: $secondColor;
+    width: 250px;
+    //height: 30px;
+    padding: 6px;
+  }
 }

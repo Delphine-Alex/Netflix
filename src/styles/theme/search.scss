@@ -1,5 +1,5 @@
 .search {
-  padding-top: 85px;
+  padding-top: 8%;
   margin-left: 45px;
   padding-bottom: 85px;
   &__content {
@@ -19,6 +19,9 @@
         color: $secondColor;
         display: flex;
         justify-content: space-between;
+        .search__icon {
+          color: $greyColor;
+        }
       }
     }
   }

@@ -55,7 +55,6 @@ const Row = (props) => {
         } else {
             movieArray.push(movieToInsert)
             localStorage.setItem("favorite", JSON.stringify(movieArray));
-            console.log("My favorite:", movieArray)
         }
 
     }
@@ -77,9 +76,9 @@ const Row = (props) => {
                                 <div className="row__icons" >
                                     <div>
                                         < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
-                                        <AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
+                                        < AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
                                     </div>
-                                    <ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
+                                    < ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
                                 </div>
 
                                 {showModal === movie.id && <Modal showModal={() => handleClick(movie.id)} onClose={() => handleClick(undefined)} movie={movie} />}
