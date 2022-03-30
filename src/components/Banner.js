@@ -20,7 +20,7 @@ const Banner = () => {
     };
 
     useEffect(() => {
-        moviesService.getMovies()
+        moviesService.getPopular()
             .then((data) => {
                 setMovie(data.results
                 [

@@ -9,7 +9,7 @@ const Mainlayout = ({ children }) => {
     const router = useRouter();
 
     if (router.pathname === "/browser" || router.pathname === "/my-list"
-        || router.pathname === "/search" || router.pathname === "/movies")
+        || router.pathname === "/search" || router.pathname === "/genre")
         return (
             <div>
                 <header>

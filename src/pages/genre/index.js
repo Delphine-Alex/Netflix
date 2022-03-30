@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
-import Input from '../../components/Input';
 import Modal from '../../components/Modal';
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -10,84 +9,58 @@ import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 const Index = () => {
-    const [movies, setMovies] = useState([]);
+    const [moviesByGenre, setMoviesByGenre] = useState([]);
     const [showModal, setShowModal] = useState();
-    const [searchTerm, setSearchTerm] = useState("");
+    const [genres, setGenres] = useState([]);
 
     const router = useRouter();
 
     const apiUrl = "https://api.themoviedb.org/3"
     const apiKey = "fd7bff04ac1e8d64d6c38c9200b46fb8";
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        fetch(`${apiUrl}/search/movie?api_key=${apiKey}&query=` + searchTerm)
+    useEffect(() => {
+        return fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=fd7bff04ac1e8d64d6c38c9200b46fb8")
             .then((res) => res.json())
             .then((data) => {
-                setMovies(data.results);
+                setGenres(data.genres);
             })
-        setSearchTerm("");
-    }
 
-    const handleOnChange = (e) => {
-        setSearchTerm(e.target.value);
-    }
+    }, []);
+
+    const handleGenreClick = (genre_id) => {
+        return fetch(`${apiUrl}/discover/movie?api_key=${apiKey}&with_genres=${genre_id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setMoviesByGenre(data.results);
+            })
+    };
 
     const handleClick = (showModalId) => {
         setShowModal(showModalId)
     };
 
-    const addToFavorite = (element) => {
-
-        const movieToInsert = {
-            id: element.id,
-            title: element.title,
-            overview: element.overview,
-            backdrop_path: element.backdrop_path,
-        }
-        const movieArray = [];
-
-        if (localStorage.getItem("favorite")) {
-            const localStorageFavorite = JSON.parse(localStorage.getItem("favorite"));
-            localStorageFavorite.forEach((item) => {
-                movieArray.push(item);
-            });
-
-            const checkId = movieArray.findIndex((el) => el.id === element.id);
-            if (checkId == -1) {
-                movieArray.push(movieToInsert)
-            } else {
-                movieArray.splice(checkId, 1)
-            }
-
-            localStorage.setItem("favorite", JSON.stringify(movieArray));
-
-        } else {
-            movieArray.push(movieToInsert)
-            localStorage.setItem("favorite", JSON.stringify(movieArray));
-        }
-
-    }
-
     return (
-        <div className="search">
+        <div className="genre">
+            <span className="genre__title">Movies</span>
+            <div className="genre__content">
+                {genres.map((genre) => {
+                    return (
+                        <ul className="genre__lists" key={genre.id}>
+                            <a className="genre__list"
+                                onClick={() => {
+                                    handleGenreClick(genre.id);
+                                }}
+                            >
+                                {genre.name}
+                            </a>
+                        </ul>
+                    )
+                })}
+            </div>
 
-            <form onSubmit={handleSubmit}>
-                < Input
-                    name="search"
-                    id="search"
-                    type="text"
-                    classes="form__input__search"
-                    required={false}
-                    placeholder="Search..."
-                    value={searchTerm}
-                    handleChange={handleOnChange}
-                />
-            </form>
 
             <div className="search__content">
-                {movies && movies.map((movie) => {
+                {moviesByGenre && moviesByGenre.map((movie) => {
                     return (
                         <div key={movie.id} className="search__pictures">
                             <img
@@ -107,7 +80,7 @@ const Index = () => {
                     )
                 })}
             </div>
-        </div>
+        </div >
     );
 }
 

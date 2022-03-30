@@ -16,11 +16,37 @@ const Row = (props) => {
     const router = useRouter();
 
     useEffect(() => {
-        moviesService.getDiscover()
-            .then((data) => {
-                setMovie(data.results);
-            })
-            .catch(err => console.log(err))
+        if (props.title === "Top rated on Netflix") {
+            moviesService.getMovies()
+                .then((data) => {
+                    setMovie(data.results);
+                })
+                .catch(err => console.log(err))
+        } else if (props.title === "Popular on Netflix") {
+            moviesService.getPopular()
+                .then((data) => {
+                    setMovie(data.results);
+                })
+                .catch(err => console.log(err))
+        } else if (props.title === "Action & Adventure") {
+            moviesService.getDiscoverActionAndAdventure()
+                .then((data) => {
+                    setMovie(data.results);
+                })
+                .catch(err => console.log(err))
+        } else if (props.title === "TV Horror") {
+            moviesService.getDiscoverTvHorror()
+                .then((data) => {
+                    setMovie(data.results);
+                })
+                .catch(err => console.log(err))
+        } else {
+            moviesService.getDiscoverRomanticComedics()
+                .then((data) => {
+                    setMovie(data.results);
+                })
+                .catch(err => console.log(err))
+        }
     }, []);
 
     const handleClick = (showModalId) => {

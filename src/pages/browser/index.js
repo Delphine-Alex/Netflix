@@ -6,9 +6,12 @@ import Row from '../../components/Row';
 const Index = () => {
     return (
         <div>
-            <Banner />
-            <Row title="Netflix original" />
-            <Row title="Netflix original" />
+            < Banner />
+            < Row title="Top rated on Netflix" />
+            < Row title="Popular on Netflix" />
+            < Row title="Action & Adventure" />
+            < Row title="Romantic Comedies" />
+            < Row title="TV Horror" />
         </div>
     );
 }

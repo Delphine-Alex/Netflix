@@ -27,7 +27,7 @@ const Header = () => {
             <Image src={Netflix} alt="Netflix logo" className="header__logo" height={70} width={120} />
             <nav className="header__primary__navigation">
                 <a href="/browser" className="header__item">Home</a>
-                <a href="/movies" className="header__item">Movies</a>
+                <a href="/genre" className="header__item">Movies</a>
                 <a href="/my-list" className="header__item">My List</a>
                 <a href="/" className="header__responsive_item">Browse</a>
             </nav>
