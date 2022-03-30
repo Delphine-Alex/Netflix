@@ -16,8 +16,6 @@ const Index = () => {
     const [showModal, setShowModal] = useState();
     const [searchTerm, setSearchTerm] = useState("");
 
-    console.log(movies);
-
     const router = useRouter();
 
     const apiUrl = "https://api.themoviedb.org/3"
@@ -95,7 +93,7 @@ const Index = () => {
                     return (
                         <div key={movie.id} className="search__pictures">
                             <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}` ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"}
                                 alt={movie && movie.title}
                                 className="search__picture"
                             />

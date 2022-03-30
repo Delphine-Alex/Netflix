@@ -7,7 +7,7 @@ export default {
             .then((res) => res.json())
     },
     getDiscover() {
-        return fetch(`${apiUrl}/discover/movie?api_key=${apiKey}&width_genres=28`)
+        return fetch(`${apiUrl}/discover/movie?api_key=${apiKey}`)
             .then((res) => res.json())
     },
     // Get a list of the current popular movies on TMDB
