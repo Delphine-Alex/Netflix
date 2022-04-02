@@ -91,7 +91,7 @@ const Index = () => {
                     return (
                         <div key={movie.id} className="search__pictures">
                             <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}` ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/large-crowd-of-people-small.jpg"}
+                                src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
                                 alt={movie && movie.title}
                                 className="search__picture"
                             />

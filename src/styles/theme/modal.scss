@@ -17,7 +17,7 @@
   border-radius: 4px;
   &__header {
     position: relative;
-    height: 50vh;
+    height: 60vh;
     .close__cross {
       width: 15px;
       height: 15px;
@@ -43,7 +43,7 @@
     }
     .modal__main {
       position: absolute;
-      margin: 32vh 4% 0 4%;
+      margin: 42vh 4% 0 4%;
       .modal__title {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
         color: $secondColor;

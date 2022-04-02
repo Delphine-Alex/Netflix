@@ -95,7 +95,7 @@ const Row = (props) => {
                         return (
                             <div key={movie.id}>
                                 <img
-                                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                                    src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
                                     alt={movie && movie.title || movie && movie.original_title}
                                     className="row__picture"
                                 />
@@ -105,6 +105,7 @@ const Row = (props) => {
                                         < AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
                                     </div>
                                     < ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
+
                                 </div>
 
                                 {showModal === movie.id && <Modal showModal={() => handleClick(movie.id)} onClose={() => handleClick(undefined)} movie={movie} />}

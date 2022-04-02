@@ -38,7 +38,7 @@ const Index = () => {
                         return (
                             <div key={favorite.id} className="favorite__pictures">
                                 <img
-                                    src={`https://image.tmdb.org/t/p/original/${favorite.backdrop_path}`}
+                                    src={favorite.backdrop_path ? `https://image.tmdb.org/t/p/original/${favorite.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
                                     alt={favorite && favorite.title || favorite && favorite.original_title}
                                     className="favorite__picture"
                                 />

@@ -24,6 +24,9 @@
         color: $secondColor;
         display: flex;
         justify-content: space-between;
+        .row__direction {
+          display: flex;
+        }
         .row__icon {
           color: $greyColor;
         }

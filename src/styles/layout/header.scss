@@ -11,6 +11,7 @@
   width: 100%;
   padding: 8px 2.5%;
   height: 70px;
+  z-index: 99;
   &__primary__navigation {
     margin-left: 20px;
     color: $secondColor;
