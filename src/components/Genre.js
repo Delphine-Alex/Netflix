@@ -1,56 +1,42 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from 'react';
+
 import { useRouter } from 'next/router';
 
-import moviesService from "../services/movies.service";
 
-import Modal from "./Modal";
+import moviesService from '../services/movies.service';
+import Modal from '../components/Modal';
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
-const Row = (props) => {
-    const [movie, setMovie] = useState([])
+const Genre = () => {
+    const [moviesByGenre, setMoviesByGenre] = useState([]);
     const [showModal, setShowModal] = useState();
+    const [genres, setGenres] = useState([]);
 
     const router = useRouter();
 
+    const apiUrl = "https://api.themoviedb.org/3"
+    const apiKey = "fd7bff04ac1e8d64d6c38c9200b46fb8";
+
     useEffect(() => {
-        if (props.title === "Top rated on Netflix") {
-            moviesService.getMovies()
-                .then((data) => {
-                    setMovie(data.results);
-                })
-                .catch(err => console.log(err))
-        } else if (props.title === "Popular on Netflix") {
-            moviesService.getPopular()
-                .then((data) => {
-                    setMovie(data.results);
-                })
-                .catch(err => console.log(err))
-        } else if (props.title === "Action & Adventure") {
-            moviesService.getDiscoverActionAndAdventure()
-                .then((data) => {
-                    setMovie(data.results);
-                })
-                .catch(err => console.log(err))
-        } else if (props.title === "TV Horror") {
-            moviesService.getDiscoverTvHorror()
-                .then((data) => {
-                    setMovie(data.results);
-                })
-                .catch(err => console.log(err))
-        } else {
-            moviesService.getDiscoverRomanticComedics()
-                .then((data) => {
-                    setMovie(data.results);
-                })
-                .catch(err => console.log(err))
-        }
+        moviesService.getGenre()
+            .then((data) => {
+                setGenres(data.genres);
+            })
     }, []);
 
     const handleClick = (showModalId) => {
         setShowModal(showModalId)
+    };
+
+    const handleGenreClick = (genre_id) => {
+        return fetch(`${apiUrl}/discover/movie?api_key=${apiKey}&with_genres=${genre_id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setMoviesByGenre(data.results);
+            })
     };
 
     const addToFavorite = (element) => {
@@ -86,36 +72,44 @@ const Row = (props) => {
     }
 
     return (
-        <div className="row">
-
-            <h2 className="row__title">{props.title}</h2>
-
-            <div className="row__wrapper">
-                {movie.map((movie) => {
+        <>
+            <div className="genre__content">
+                {genres.map((genre) => {
                     return (
-                        <div key={movie.id}>
+                        <ul className="genre__lists" key={genre.id}>
+                            <a className="genre__list"
+                                onClick={() => { handleGenreClick(genre.id) }}
+                            >
+                                {genre.name}
+                            </a>
+                        </ul>
+                    )
+                })}
+            </div>
+
+            <div className="search__content">
+                {moviesByGenre && moviesByGenre.map((movie) => {
+                    return (
+                        <div key={movie.id} className="search__pictures">
                             <img
                                 src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
-                                alt={movie && movie.title || movie && movie.original_title}
-                                className="row__pictures"
+                                alt={movie && movie.title}
+                                className="search__picture"
                             />
-                            <div className="row__icons" >
+                            <div className="search__icons">
                                 <div>
                                     < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
-                                    < AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
+                                    < AddCircleOutlineIcon className="search__icon" onClick={() => addToFavorite(movie)} />
                                 </div>
-                                < ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
-
+                                < ExpandCircleDownIcon className="search__icon" onClick={() => handleClick(movie.id)} />
                             </div>
-
                             {showModal === movie.id && <Modal showModal={() => handleClick(movie.id)} onClose={() => handleClick(undefined)} movie={movie} />}
                         </div>
                     )
                 })}
             </div>
-
-        </div>
+        </>
     );
 }
 
-export default Row;
+export default Genre;

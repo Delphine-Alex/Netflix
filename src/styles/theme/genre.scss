@@ -6,10 +6,15 @@
     font-size: 22px;
     color: $secondColor;
   }
+  &__btn {
+    border: 1px solid $secondColor;
+    color: $secondColor;
+    margin-left: 20px;
+    padding: 4px;
+  }
   &__content {
     color: $secondColor;
     border: 2px solid grey;
-    //width: 300px;
     font-size: 14px;
     display: flex;
     flex-wrap: wrap;

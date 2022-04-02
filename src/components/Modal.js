@@ -42,7 +42,7 @@ const Modal = ({ onClose, movie }) => {
     }
 
     const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url(${movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         borderRadius: "4px 4px 0px 0px"
@@ -70,7 +70,7 @@ const Modal = ({ onClose, movie }) => {
                 </div>
 
                 <div className='modal__content'>
-                    <p className='modal__description'>{movie && movie.overview}</p>
+                    <p className='modal__description'>{movie && movie.overview || "No description for now"}</p>
                 </div>
             </div>
         </>

@@ -19,10 +19,11 @@ const Video = () => {
     return (
         <>
             <iframe
-                src={`https://www.youtube.com/embed/${movie.key}`}
+                src={movie ? `https://www.youtube.com/embed/${movie.key}` : "https://assets.b9.com.br/wp-content/uploads/2018/10/youtube_fail.jpg"}
                 title="YouTube video player"
                 frameBorder="0"
                 allowFullScreen
+                className='video__error'
             >
             </iframe>
         </>

@@ -20,6 +20,7 @@ const Banner = () => {
     };
 
     useEffect(() => {
+
         moviesService.getPopular()
             .then((data) => {
                 setMovie(data.results
@@ -28,10 +29,11 @@ const Banner = () => {
                 ]);
             })
             .catch(err => console.log(err))
+
     }, []);
 
     const bannerStyle = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url(${movie?.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"})`,
         backgroundPosition: "center",
         backgroundSize: "cover"
     }
