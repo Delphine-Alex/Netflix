@@ -87,34 +87,33 @@ const Row = (props) => {
 
     return (
         <div className="row">
-            <div className="row__content">
-                <h2 className="row__title">{props.title}</h2>
-                <div className="row__pictures">
 
-                    {movie.map((movie) => {
-                        return (
-                            <div key={movie.id}>
-                                <img
-                                    src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
-                                    alt={movie && movie.title || movie && movie.original_title}
-                                    className="row__picture"
-                                />
-                                <div className="row__icons" >
-                                    <div>
-                                        < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
-                                        < AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
-                                    </div>
-                                    < ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
+            <h2 className="row__title">{props.title}</h2>
 
+            <div className="row__wrapper">
+                {movie.map((movie) => {
+                    return (
+                        <div key={movie.id}>
+                            <img
+                                src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png"}
+                                alt={movie && movie.title || movie && movie.original_title}
+                                className="row__pictures"
+                            />
+                            <div className="row__icons" >
+                                <div>
+                                    < PlayCircleIcon onClick={() => router.push(`/video/${movie.id}`)} />
+                                    < AddCircleOutlineIcon className="row__icon" onClick={() => addToFavorite(movie)} />
                                 </div>
+                                < ExpandCircleDownIcon className="row__icon" onClick={() => handleClick(movie.id)} />
 
-                                {showModal === movie.id && <Modal showModal={() => handleClick(movie.id)} onClose={() => handleClick(undefined)} movie={movie} />}
                             </div>
-                        )
-                    })}
 
-                </div>
+                            {showModal === movie.id && <Modal showModal={() => handleClick(movie.id)} onClose={() => handleClick(undefined)} movie={movie} />}
+                        </div>
+                    )
+                })}
             </div>
+
         </div>
     );
 }

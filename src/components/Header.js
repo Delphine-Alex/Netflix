@@ -29,11 +29,11 @@ const Header = () => {
                 <a href="/browser" className="header__item">Home</a>
                 <a href="/genre" className="header__item">Movies</a>
                 <a href="/my-list" className="header__item">My List</a>
-                <a href="/" className="header__responsive_item">Browse</a>
+                <a href="/browser" className="header__responsive_item">Browse</a>
             </nav>
             <div className="header__secondary__navigation">
                 <a href="/search" className="header__link"><SearchIcon /></a>
-                <a href="/" className="header__link"><NotificationsIcon /></a>
+                <a href="/browser" className="header__link"><NotificationsIcon /></a>
                 <Image src={Avatar} alt="Avatar" height={30} width={30} className="header__avatar" />
             </div>
         </div>
