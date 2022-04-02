@@ -1,0 +1,32 @@
+.latest {
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 18%;
+  left: 81%;
+  width: 20%;
+  .latest__bar {
+    height: 2px;
+    background-color: aliceblue;
+  }
+  &__content {
+    display: flex;
+    padding: 2%;
+    .latest__picture {
+      border-radius: 4%;
+      width: 45%;
+    }
+    .latest__description {
+      padding-left: 2%;
+      color: $secondColor;
+      font-size: 14px;
+      .latest__title {
+        margin-bottom: 4%;
+      }
+      .latest__title__time {
+        color: $greyColor;
+        font-style: italic;
+      }
+    }
+  }
+}

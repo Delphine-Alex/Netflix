@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
 import { useRouter } from 'next/router';
 
 import Modal from '../../components/Modal';
+
+import moviesService from '../../services/movies.service';
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
@@ -19,12 +20,10 @@ const Index = () => {
     const apiKey = "fd7bff04ac1e8d64d6c38c9200b46fb8";
 
     useEffect(() => {
-        return fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=fd7bff04ac1e8d64d6c38c9200b46fb8")
-            .then((res) => res.json())
+        moviesService.getGenre()
             .then((data) => {
                 setGenres(data.genres);
             })
-
     }, []);
 
     const handleGenreClick = (genre_id) => {
@@ -38,6 +37,38 @@ const Index = () => {
     const handleClick = (showModalId) => {
         setShowModal(showModalId)
     };
+
+    const addToFavorite = (element) => {
+
+        const movieToInsert = {
+            id: element.id,
+            title: element.title,
+            overview: element.overview,
+            backdrop_path: element.backdrop_path,
+        }
+        const movieArray = [];
+
+        if (localStorage.getItem("favorite")) {
+            const localStorageFavorite = JSON.parse(localStorage.getItem("favorite"));
+            localStorageFavorite.forEach((item) => {
+                movieArray.push(item);
+            });
+
+            const checkId = movieArray.findIndex((el) => el.id === element.id);
+            if (checkId == -1) {
+                movieArray.push(movieToInsert)
+            } else {
+                movieArray.splice(checkId, 1)
+            }
+
+            localStorage.setItem("favorite", JSON.stringify(movieArray));
+
+        } else {
+            movieArray.push(movieToInsert)
+            localStorage.setItem("favorite", JSON.stringify(movieArray));
+        }
+
+    }
 
     return (
         <div className="genre">

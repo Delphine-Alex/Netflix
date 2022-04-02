@@ -25,5 +25,13 @@ export default {
     getVideo(id) {
         return fetch(`${apiUrl}/movie/${id}/videos?api_key=${apiKey}`)
             .then((res) => res.json())
+    },
+    getGenre() {
+        return fetch(`${apiUrl}/genre/movie/list?api_key=${apiKey}`)
+            .then((res) => res.json())
+    },
+    getLatest() {
+        return fetch(`${apiUrl}/movie/latest?api_key=${apiKey}`)
+            .then((res) => res.json())
     }
 }

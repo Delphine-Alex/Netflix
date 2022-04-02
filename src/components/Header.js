@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from 'next/image';
 
 import Avatar from "../public/assets/avatar.png";
+import LatestMovie from "./LatestMovie";
 import Netflix from "../public/assets/netflix_logo.png";
 
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -10,6 +11,11 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
     const [scroll, setScroll] = useState("transparent");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleClick = () => {
+        setShowModal((showModal) => !showModal);
+    };
 
     const listenScrollEvent = () => {
         window.scrollY > 10 ? setScroll("#141414") : setScroll("transparent");
@@ -33,9 +39,10 @@ const Header = () => {
             </nav>
             <div className="header__secondary__navigation">
                 <a href="/search" className="header__link"><SearchIcon /></a>
-                <a href="/browser" className="header__link"><NotificationsIcon /></a>
+                <a className="header__link" onClick={handleClick}><NotificationsIcon /></a>
                 <Image src={Avatar} alt="Avatar" height={30} width={30} className="header__avatar" />
             </div>
+            {showModal && <LatestMovie showModal={handleClick} />}
         </div>
     );
 }
