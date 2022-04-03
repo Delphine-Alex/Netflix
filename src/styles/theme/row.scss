@@ -10,22 +10,6 @@
     overflow-x: visible;
     overflow-y: hidden;
     width: 100%;
-    .row__pictures {
-      width: 210px;
-      padding: 0.3rem;
-      border-radius: 12px;
-    }
-    .row__icons {
-      color: $secondColor;
-      display: flex;
-      justify-content: space-between;
-      .row__direction {
-        display: flex;
-      }
-      .row__icon {
-        color: $greyColor;
-      }
-    }
   }
 
   ::-webkit-scrollbar {

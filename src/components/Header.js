@@ -11,10 +11,10 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
     const [scroll, setScroll] = useState("transparent");
-    const [showModal, setShowModal] = useState(false);
+    const [showComponant, setShowComponant] = useState(false);
 
     const handleClick = () => {
-        setShowModal((showModal) => !showModal);
+        setShowComponant((showComponant) => !showComponant);
     };
 
     const listenScrollEvent = () => {
@@ -42,7 +42,7 @@ const Header = () => {
                 <a className="header__link" onClick={handleClick}><NotificationsIcon /></a>
                 <Image src={Avatar} alt="Avatar" height={30} width={30} className="header__avatar" />
             </div>
-            {showModal && <LatestMovie showModal={handleClick} />}
+            {showComponant && <LatestMovie showComponant={handleClick} />}
         </div>
     );
 }

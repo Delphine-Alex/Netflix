@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import Genre from '../../components/Genre';
 
 const Index = () => {
-    const [showModal, setShowModal] = useState()
+    const [showComponant, setShowComponant] = useState()
 
     const handleClick = () => {
-        setShowModal((showModal) => !showModal);
+        setShowComponant((showComponant) => !showComponant);
     };
 
     return (
@@ -14,7 +14,7 @@ const Index = () => {
             <span className="genre__title">Movies</span>
             <span className='genre__btn' onClick={handleClick}>Genres</span>
 
-            {showModal && <Genre showModal={handleClick} />}
+            {showComponant && <Genre showComponant={handleClick} />}
 
         </div >
     );

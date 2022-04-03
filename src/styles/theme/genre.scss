@@ -12,17 +12,30 @@
     margin-left: 20px;
     padding: 4px;
   }
-  &__content {
-    color: $secondColor;
-    border: 2px solid grey;
-    font-size: 14px;
+  &__content__btn {
+    background-color: $blackColor;
+    margin-top: 20px;
+    width: 97%;
+    font-size: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     .genre__lists {
+      color: $secondColor;
+      flex: 1 0 16%;
+      width: 30%;
       .genre__list {
         text-decoration: none;
       }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .search__pictures {
+      padding: 0.2rem;
+      margin: 0px 0px 25px -5px;
     }
   }
 }

@@ -10,19 +10,6 @@
     .search__pictures {
       padding: 0.2rem;
       margin: 0px 0px 25px -5px;
-      .search__picture {
-        width: 225px;
-        padding: 0.3rem;
-        border-radius: 10px;
-      }
-      .search__icons {
-        color: $secondColor;
-        display: flex;
-        justify-content: space-between;
-        .search__icon {
-          color: $greyColor;
-        }
-      }
     }
   }
 }
