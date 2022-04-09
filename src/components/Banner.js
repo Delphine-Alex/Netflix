@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import Button from './Button';
-import Genre from './Genre';
 import Modal from './Modal';
 
 import moviesService from '../services/movies.service';
@@ -10,7 +9,7 @@ import moviesService from '../services/movies.service';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-const Banner = (props) => {
+const Banner = () => {
     const [movie, setMovie] = useState([])
     const [showModal, setShowModal] = useState(false);
 
