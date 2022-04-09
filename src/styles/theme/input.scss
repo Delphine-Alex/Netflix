@@ -8,17 +8,24 @@
     height: 50px;
     border: none;
   }
-  // &__input__register {
-  //   //padding: 0px 35px;
-  //   // width: 150%;
-  //   height: 50px;
-  // }
+  &__input__register {
+    padding: 0px 15px;
+    width: 325px;
+    height: 50px;
+    border: none;
+  }
   &__input__search {
     border: 2px solid $secondColor;
     background-color: $primaryColor;
     color: $secondColor;
     width: 250px;
-    //height: 30px;
     padding: 6px;
+  }
+  &__input__signup {
+    margin: 10px 0 4px;
+    padding: 10px;
+    width: 500px;
+    height: 60px;
+
   }
 }

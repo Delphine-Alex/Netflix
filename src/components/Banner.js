@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import Button from './Button';
+import Genre from './Genre';
 import Modal from './Modal';
 
 import moviesService from '../services/movies.service';
@@ -9,7 +10,7 @@ import moviesService from '../services/movies.service';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-const Banner = () => {
+const Banner = (props) => {
     const [movie, setMovie] = useState([])
     const [showModal, setShowModal] = useState(false);
 
@@ -20,7 +21,6 @@ const Banner = () => {
     };
 
     useEffect(() => {
-
         moviesService.getPopular()
             .then((data) => {
                 setMovie(data.results
@@ -29,7 +29,6 @@ const Banner = () => {
                 ]);
             })
             .catch(err => console.log(err))
-
     }, []);
 
     const bannerStyle = {
@@ -44,6 +43,7 @@ const Banner = () => {
 
     return (
         <div className='banner' style={bannerStyle}>
+
             <div className='banner__content'>
                 <h1 className='banner__title'>{movie && movie.title || movie && movie.original_title}</h1>
                 <p className='banner__description'>{truncate(movie && movie.overview)}</p>

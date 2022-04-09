@@ -60,4 +60,14 @@
     border-radius: 0px;
     width: 200px;
   }
+  &__color-red-signup {
+    background-color: $redColor;
+    color: $secondColor;
+    margin-top: 24px;
+    width: 500px;
+    height: 60px;
+    font-weight: 500;
+    font-size: 24px;
+    border-radius: 4px;
+  }
 }

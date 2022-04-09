@@ -15,7 +15,7 @@
   &__content__btn {
     background-color: $blackColor;
     margin-top: 20px;
-    width: 97%;
+    //width: 97%;
     font-size: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +33,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    .search__pictures {
+    .genre__pictures {
       padding: 0.2rem;
       margin: 0px 0px 25px -5px;
     }

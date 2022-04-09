@@ -55,7 +55,7 @@ const Index = () => {
 
                 <div className="login__second">
                     <p className="login__signup">
-                        New to Netflix? <a href="/browser" className="login__redirection">Sign up now</a>.
+                        New to Netflix? <a href="/signup" className="login__redirection">Sign up now</a>.
                     </p>
                     <p className="login__protected">
                         This page is protected by Google reCAPTCHA to ensure you're not a

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Genre from '../../components/Genre';
 
 const Index = () => {
-    const [showComponant, setShowComponant] = useState()
+    const [showComponant, setShowComponant] = useState(false)
 
     const handleClick = () => {
         setShowComponant((showComponant) => !showComponant);
