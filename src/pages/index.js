@@ -33,8 +33,7 @@ const Home = () => {
         <h1 className="register__main_title">Unlimited movies, TV shows, and more.</h1>
         <h2 className="register__subtitle">Watch anywhere. Cancel anytime.</h2>
         <h3 className="register__title">Ready to watch? Enter your email to create or restart your membership.</h3>
-        <form className="register__form" onSubmit={(e) => submitLogin(e)}
-        >
+        <form className="register__form" onSubmit={(e) => submitLogin(e)}>
           <Input
             name="email"
             id="email"

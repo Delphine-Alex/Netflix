@@ -21,7 +21,7 @@ const Index = () => {
         <div className='signup'>
             <div className="signup__header">
                 <img src={Netflix.src} className="signup__logo" />
-                <Link href="/"><a className="signup__header__link">Sign In</a></Link>
+                <Link href="/login"><a className="signup__header__link">Sign In</a></Link>
             </div>
 
             <div className="signup__content">

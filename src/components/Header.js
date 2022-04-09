@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Avatar from "../public/assets/avatar.png";
 import LatestMovie from "./LatestMovie";
@@ -30,16 +31,16 @@ const Header = () => {
 
     return (
         <div className="header" style={{ backgroundColor: scroll, transition: "all 1s" }}>
-            <Image src={Netflix} alt="Netflix logo" className="header__logo" height={70} width={120} />
+            <img src={Netflix.src} alt="Netflix logo" className="header__logo" />
             <nav className="header__primary__navigation">
-                <a href="/browser" className="header__item">Home</a>
-                <a href="/genre" className="header__item">Movies</a>
-                <a href="/my-list" className="header__item">My List</a>
-                <a href="/browser" className="header__responsive_item">Browse</a>
+                <Link href="/browser"><a className="header__item">Home</a></Link>
+                <Link href="/genre"><a className="header__item">Movies</a></Link>
+                <Link href="/my-list"><a className="header__item">My List</a></Link>
+                <Link href="/browser"><a className="header__responsive_item">Browse</a></Link>
             </nav>
             <div className="header__secondary__navigation">
-                <a href="/search" className="header__link"><SearchIcon /></a>
-                <a className="header__link" onClick={handleClick}><NotificationsIcon /></a>
+                <Link href="/search"><a className="header__link"><SearchIcon /></a></Link>
+                <div className="header__link" onClick={handleClick}><NotificationsIcon /></div>
                 <Image src={Avatar} alt="Avatar" height={30} width={30} className="header__avatar" />
             </div>
             {showComponant && <LatestMovie showComponant={handleClick} />}

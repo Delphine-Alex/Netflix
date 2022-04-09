@@ -70,11 +70,14 @@
   }
   &__color-red-login {
     background-color: $redColor;
-    padding: 0px 16px 0px 16px;
+    //padding: 0px 16px 0px 16px;
     color: $secondColor;
     font-size: 16px;
     font-weight: 400;
     margin: 30px;
+    @media screen and (max-width: 460px) {
+      padding: 8px;
+    }
   }
   &__color-red-register {
     background-color: $redColor;
@@ -95,5 +98,8 @@
     font-weight: 500;
     font-size: 24px;
     border-radius: 4px;
+    @media screen and (max-width: 460px) {
+      width: 300px;
+    }
   }
 }

@@ -13,6 +13,13 @@
     width: 325px;
     height: 50px;
     border: none;
+    @media screen and (max-width: 860px) {
+      margin-bottom: 20px;
+      width: 500px;
+    }
+    @media screen and (max-width: 460px) {
+      width: 325px;
+    }
   }
   &__input__search {
     border: 2px solid $secondColor;
@@ -26,6 +33,9 @@
     padding: 10px;
     width: 500px;
     height: 60px;
+    @media screen and (max-width: 460px) {
+      width: 300px;
+    }
 
   }
 }

@@ -23,6 +23,10 @@
     .login__logo {
       width: 185px;
       height: 100px;
+      @media screen and (max-width: 460px) {
+        width: 125px;
+        height: 65px;
+      }
     }
   }
   &__content {
@@ -35,7 +39,10 @@
     border-radius: 4px;
     box-sizing: border-box;
     transform: translateX(-50%);
-
+    @media screen and (max-width: 420px) {
+      background-color: black;
+      width: 350px;
+     }
     .login__title {
       margin: 0 0 10px 0;
       color: $secondColor;

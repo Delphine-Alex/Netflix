@@ -2,6 +2,9 @@
     background-color: $secondColor;
     padding-bottom: 10%;
     color: $primaryColor;
+    @media screen and (max-width: 1000px) {
+       padding-bottom: 80%;
+      }
     &__header {
         border-bottom: 1px solid #e6e6e6;
         display: flex;
@@ -14,6 +17,10 @@
         .signup__logo {
             width: 185px;
             height: 100px;
+            @media screen and (max-width: 460px) {
+                width: 90px;
+                height: 50px;
+            }
         }
         .signup__header__link {
             font-weight: 500;
@@ -24,6 +31,9 @@
         max-width: 440px;
         margin: 0 auto;
         margin-top: 60px;
+        @media screen and (max-width: 460px) {
+            padding: 10%;
+           }
         .signup__main_title {
             font-weight: 600;
             font-size: 32px;
