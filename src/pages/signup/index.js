@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -20,7 +21,7 @@ const Index = () => {
         <div className='signup'>
             <div className="signup__header">
                 <img src={Netflix.src} className="signup__logo" />
-                <a className="signup__header__link" href="/">Sign In</a>
+                <Link href="/"><a className="signup__header__link">Sign In</a></Link>
             </div>
 
             <div className="signup__content">

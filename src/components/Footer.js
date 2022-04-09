@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Link from 'next/link'
+
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -9,26 +11,26 @@ const Footer = () => {
     return (
         <div className="footer">
             <div className="footer__icons">
-                <a href="/" className="footer__icon"><FacebookIcon /></a>
-                <a href="/" className="footer__icon"><InstagramIcon /></a>
-                <a href="/" className="footer__icon"><TwitterIcon /></a>
-                <a href="/" className="footer__icon"><YouTubeIcon /></a>
+                <Link href="/"><a className="footer__icon"><FacebookIcon /></a></Link>
+                <Link href="/"><a className="footer__icon"><InstagramIcon /></a></Link>
+                <Link href="/"><a className="footer__icon"><TwitterIcon /></a></Link>
+                <Link href="/"><a className="footer__icon"><YouTubeIcon /></a></Link>
             </div>
 
             <ul className="footer__links">
-                <li className="footer__link"><a href="/">Audio and Subtitles</a></li>
-                <li className="footer__link"><a href="/">Audio Description</a></li>
-                <li className="footer__link"><a href="/">Help Center</a></li>
-                <li className="footer__link"><a href="/">Gift Cards</a></li>
-                <li className="footer__link"><a href="/">Media center</a></li>
-                <li className="footer__link"><a href="/">Investor Relations</a></li>
-                <li className="footer__link"><a href="/">Jobs</a></li>
-                <li className="footer__link"><a href="/">Terms of Use</a></li>
-                <li className="footer__link"><a href="/">Privacy</a></li>
-                <li className="footer__link"><a href="/">Legal Notices</a></li>
-                <li className="footer__link"><a href="/">Cookie Preferences</a></li>
-                <li className="footer__link"><a href="/">Corporate Information</a></li>
-                <li className="footer__link"><a href="/">Contact Us</a></li>
+                <li className="footer__link"><Link href="/"><a>Audio and Subtitles</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Audio Description</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Help Center</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Gift Cards</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Media center</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Investor Relations</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Jobs</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Terms of Use</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Privacy</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Legal Notices</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Cookie Preferences</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Corporate Information</a></Link></li>
+                <li className="footer__link"><Link href="/"><a>Contact Us</a></Link></li>
             </ul>
 
             <div className="footer__copyright">

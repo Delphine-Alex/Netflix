@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -55,11 +56,11 @@ const Index = () => {
 
                 <div className="login__second">
                     <p className="login__signup">
-                        New to Netflix? <a href="/signup" className="login__redirection">Sign up now</a>.
+                        New to Netflix? <Link href="/"><a className="login__redirection">Sign up now</a></Link>.
                     </p>
                     <p className="login__protected">
                         This page is protected by Google reCAPTCHA to ensure you're not a
-                        bot. <a className="login__information" href="/">Learn more</a>.
+                        bot. <Link href="/"><a className="login__information">Learn more</a></Link>.
                     </p>
                 </div>
             </div>

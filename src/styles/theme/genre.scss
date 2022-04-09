@@ -1,5 +1,5 @@
 .genre {
-  padding-top: 6%;
+  padding-top: 85px;
   margin-left: 45px;
   padding-bottom: 85px;
   &__title {
@@ -15,14 +15,13 @@
   &__content__btn {
     background-color: $blackColor;
     margin-top: 20px;
-    //width: 97%;
     font-size: 10px;
     display: flex;
     flex-wrap: wrap;
+    width: 45%;
     .genre__lists {
       color: $secondColor;
-      flex: 1 0 16%;
-      width: 30%;
+      flex: 1 0 28%;
       .genre__list {
         text-decoration: none;
       }
