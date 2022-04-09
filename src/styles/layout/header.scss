@@ -1,0 +1,63 @@
+.header {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  padding: 8px 2.5%;
+  height: 70px;
+  z-index: 99999;
+  &__logo {
+    width: 120px;
+    height: 70px;
+    @media screen and (max-width: 460px) {
+      width: 90px;
+      height: 50px;
+    }
+  }
+
+  &__primary__navigation {
+    margin-left: 20px;
+    color: $secondColor;
+    .header__item {
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 14px;
+      @media screen and (max-width: 460px) {
+        display: none;
+      }
+    }
+    .header__responsive_item {
+      font-size: 10px;
+      @media screen and (min-width: 460px) {
+        display: none;
+      }
+    }
+  }
+  &__secondary__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 38px;
+    .header__link {
+      color: $secondColor;
+      margin-right: 25px;
+      @media screen and (max-width: 885px) {
+        .css-i4bv87-MuiSvgIcon-root {
+          margin-top: 4px;
+          margin-right: -10px;
+          height: 0.7em;
+        }
+      }
+    }
+    .header__avatar {
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.movie__picture {
+  width: 225px;
+  padding: 0.3rem;
+  border-radius: 10px;
+}
+.movie__icons {
+  color: $secondColor;
+  display: flex;
+  justify-content: space-between;
+  .movie__icon {
+    color: $greyColor;
+  }
+}

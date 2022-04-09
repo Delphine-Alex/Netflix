@@ -1,0 +1,41 @@
+.form {
+  max-width: 100%;
+  &__input__login {
+    padding: 10px 5px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    width: 100%;
+    height: 50px;
+    border: none;
+  }
+  &__input__register {
+    padding: 0px 15px;
+    width: 325px;
+    height: 50px;
+    border: none;
+    @media screen and (max-width: 860px) {
+      margin-bottom: 20px;
+      width: 500px;
+    }
+    @media screen and (max-width: 460px) {
+      width: 325px;
+    }
+  }
+  &__input__search {
+    border: 2px solid $secondColor;
+    background-color: $primaryColor;
+    color: $secondColor;
+    width: 250px;
+    padding: 6px;
+  }
+  &__input__signup {
+    margin: 10px 0 4px;
+    padding: 10px;
+    width: 500px;
+    height: 60px;
+    @media screen and (max-width: 460px) {
+      width: 300px;
+    }
+
+  }
+}

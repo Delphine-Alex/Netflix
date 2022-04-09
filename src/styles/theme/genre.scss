@@ -1,0 +1,44 @@
+.genre {
+  padding-top: 85px;
+  margin-left: 45px;
+  padding-bottom: 85px;
+  &__title {
+    font-size: 22px;
+    color: $secondColor;
+  }
+  &__btn {
+    border: 1px solid $secondColor;
+    color: $secondColor;
+    margin-left: 20px;
+    padding: 4px;
+  }
+  &__content__btn {
+    background-color: $blackColor;
+    margin-top: 20px;
+    font-size: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    padding-right: 20px;
+    @media screen and (max-width: 460px) {
+      width: 85%;
+    }
+    .genre__lists {
+      color: $secondColor;
+      flex: 1 0 28%;
+      .genre__list {
+        text-decoration: none;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .genre__pictures {
+      padding: 0.2rem;
+      margin: 0px 0px 25px -5px;
+    }
+  }
+}
